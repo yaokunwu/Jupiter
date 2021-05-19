@@ -1,5 +1,6 @@
 package external;
 
+//Copy from http://developer-should-know.com/post/87283491372/geohash-encoding-and-decoding-algorithm
 public class GeoHash {
     private static final String BASE_32 = "0123456789bcdefghjkmnpqrstuvwxyz";
 
