@@ -30,7 +30,7 @@ public class Item {
 	public Set<String> getCategories() {
 		return categories;
 	}
-	public String getImageUrl() {
+	public String getImageUrl() {  
 		return imageUrl;
 	}
 	public String getUrl() {
