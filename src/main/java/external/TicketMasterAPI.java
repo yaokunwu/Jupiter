@@ -117,8 +117,8 @@ public class TicketMasterAPI {
 	// {"classifications" : [{"segment": {"name": "music"}}, ...]}
 	private Set<String> getCategories(JSONObject event) throws JSONException {
 		Set<String> categories = new HashSet<>();
-		if (!event.isNull("classification")) {
-			JSONArray classifications = event.getJSONArray("classification");
+		if (!event.isNull("classifications")) {
+			JSONArray classifications = event.getJSONArray("classifications");
 			for (int i = 0; i < classifications.length(); i++) {
 				JSONObject classification = classifications.getJSONObject(0);
 				if (!classification.isNull("segment")) {
@@ -128,8 +128,6 @@ public class TicketMasterAPI {
 					}
 				}
 			}
-			
-			
 		}
 		return categories;
 	}
