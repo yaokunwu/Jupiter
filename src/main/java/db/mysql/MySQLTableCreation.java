@@ -77,9 +77,9 @@ public class MySQLTableCreation {
 			stmt.executeUpdate(sql);
 			
 			//Test insert data
-//			sql = "INSERT INTO users VALUES(" 
-//					+ "'1111', '123o4ijoijpfda234123', 'YYYY', 'KKKK')";
-//			stmt.executeUpdate(sql);
+			sql = "INSERT INTO users VALUES(" 
+					+ "'1111', '123o4ijoijpfda234123', 'YYYY', 'KKKK')";
+			stmt.executeUpdate(sql);
 
 		} catch (Exception e) {
 			e.printStackTrace();
