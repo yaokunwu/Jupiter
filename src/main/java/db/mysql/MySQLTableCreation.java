@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Connection;
 
-//use java code to manage the database
+//local testing database generation
 public class MySQLTableCreation {
 
 	// Run this as Java application to reset db schema.

@@ -3,6 +3,7 @@ package rpc;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -40,17 +41,22 @@ public class Searchitem extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		JSONArray array = new JSONArray();
 		try {
+			String userId = request.getParameter("user_id");
 			double lat = Double.parseDouble(request.getParameter("lat"));
 			double lon = Double.parseDouble(request.getParameter("lon"));
 			String keyword  = request.getParameter("term");
 			
 			
-			DBConnection connection = DBConnectionFactory.getConnection();
-			List<Item> items = connection.searchItems(lat, lon, keyword);
-			connection.close();
+			DBConnection conn = DBConnectionFactory.getConnection();
+			List<Item> items = conn.searchItems(lat, lon, keyword);
+			
+			Set<String> favorite = conn.getFavoriteItemIds(userId);
+			conn.close();
+
 			
 			for (Item item : items) {
 				JSONObject obj = item.toJSONObject();
+				obj.put("favorite", favorite.contains(item.getItemId()));
 				array.put(obj);
 			}
 		} catch(Exception e) {
