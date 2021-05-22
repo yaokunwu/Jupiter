@@ -49,7 +49,6 @@ public class Searchitem extends HttpServlet {
 			List<Item> items = connection.searchItems(lat, lon, keyword);
 			connection.close();
 			
-			
 			for (Item item : items) {
 				JSONObject obj = item.toJSONObject();
 				array.put(obj);
