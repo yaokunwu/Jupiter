@@ -57,6 +57,7 @@ public class Item {
 		return obj;
 	}
 	
+	//if not static, we need an instance of item before getting itemBuilder, which is incorrect
 	public static class ItemBuilder {
 		public ItemBuilder setItemId(String itemId) {
 			this.itemId = itemId;
@@ -99,6 +100,7 @@ public class Item {
 		private String url;
 		private double distance;
 		
+		// only inner class can call private constructor of item
 		public Item build() {
 			return new Item(this);
 		}
