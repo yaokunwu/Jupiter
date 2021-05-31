@@ -40,15 +40,16 @@ public class RecommendItem extends HttpServlet {
 		GeoRecommendation recommendation = new GeoRecommendation();
 		List<Item> items = recommendation.recommendItems(userId, lat, lon);
 		
-		JSONArray res = new JSONArray();
-		try {
-			for (Item item : items) {
-				res.put(item.toJSONObject());
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+//		JSONArray res = new JSONArray();
+//		try {
+//			for (Item item : items) {
+//				res.put(item.toJSONObject());
+//			}
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 		
+		JSONArray res = RpcHelper.getJSONArray(items);
 		RpcHelper.writeJsonArray(response, res);
 	}
 
